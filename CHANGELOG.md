@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/radekwojpl2/BusinessRuleEngine/compare/v1.0.1...v1.0.2) (2026-05-04)
+
+
+### Bug Fixes
+
+* consolidate NuGet publish into release workflow ([6f7507e](https://github.com/radekwojpl2/BusinessRuleEngine/commit/6f7507e5294eb9903f1902424acf622098ddd364))
+
 ## [1.0.1](https://github.com/radekwojpl2/BusinessRuleEngine/compare/v1.0.0...v1.0.1) (2026-05-04)
 
 
