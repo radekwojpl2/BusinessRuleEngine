@@ -29,3 +29,6 @@ jobs:
 
       - name: Test
         run: dotnet test src/BusinessRuleEngine.sln --no-build --configuration Release --verbosity normal
+
+      - name: Check for vulnerable packages
+        run: dotnet list src/BusinessRuleEngine.sln package --vulnerable --include-transitive
