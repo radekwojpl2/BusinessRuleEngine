@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>RadekDev.BusinessRuleEngine.Testing.XUnit</PackageId>
+    <Authors>Radek Bajor</Authors>
+    <Company>Radek Bajor Personal</Company>
+    <Description>xUnit testing extensions for RadekDev.BusinessRuleEngine.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/radekwojpl2/BuisnessRuleEngine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/radekwojpl2/BuisnessRuleEngine</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>business-rule ddd xunit testing</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit.assert" Version="2.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessRuleEngine\BusinessRuleEngine.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
