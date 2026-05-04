@@ -1,5 +1,5 @@
 ﻿using BuisnessRuleEngine.Exceptions;
-using BuisnessRuleEngine.Extensions;
+using BuisnessRuleEngine.Testing.NUnit.Extensions;
 using BuissnessRuleEngine;
 using NUnit.Framework;
 

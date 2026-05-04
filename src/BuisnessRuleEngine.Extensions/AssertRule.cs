@@ -2,7 +2,7 @@
 using BuissnessRuleEngine;
 using NUnit.Framework;
 
-namespace BuisnessRuleEngine.Extensions;
+namespace BuisnessRuleEngine.Testing.NUnit.Extensions;
 
 public static class AssertRule
 {
