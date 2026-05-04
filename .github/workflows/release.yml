@@ -49,3 +49,37 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
+      - name: Pack BusinessRuleEngine
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: |
+          dotnet pack src/BusinessRuleEngine/BusinessRuleEngine.csproj \
+            --no-build \
+            --configuration Release \
+            -p:Version=${{ steps.semantic.outputs.new_release_version }} \
+            --output ./artifacts
+
+      - name: Pack BusinessRuleEngine.Testing.NUnit
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: |
+          dotnet pack src/BusinessRuleEngine.Extensions/BusinessRuleEngine.Testing.NUnit.csproj \
+            --no-build \
+            --configuration Release \
+            -p:Version=${{ steps.semantic.outputs.new_release_version }} \
+            --output ./artifacts
+
+      - name: Pack BusinessRuleEngine.Testing.XUnit
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: |
+          dotnet pack src/BusinessRuleEngine.Testing.XUnit/BusinessRuleEngine.Testing.XUnit.csproj \
+            --no-build \
+            --configuration Release \
+            -p:Version=${{ steps.semantic.outputs.new_release_version }} \
+            --output ./artifacts
+
+      - name: Push to NuGet Gallery
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: |
+          dotnet nuget push ./artifacts/*.nupkg \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
