@@ -11,14 +11,11 @@ permissions:
   pull-requests: write
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GH_PAT }}
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -33,6 +30,19 @@ jobs:
 
       - name: Test
         run: dotnet test src/BusinessRuleEngine.sln --no-build --configuration Release --verbosity normal
+
+  semantic-release:
+    needs: build
+    runs-on: ubuntu-latest
+    outputs:
+      new_release_published: ${{ steps.semantic.outputs.new_release_published }}
+      new_release_version: ${{ steps.semantic.outputs.new_release_version }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_PAT }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -49,35 +59,72 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
+  pack:
+    needs: semantic-release
+    if: needs.semantic-release.outputs.new_release_published == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore
+        run: dotnet restore src/BusinessRuleEngine.sln
+
+      - name: Build
+        run: dotnet build src/BusinessRuleEngine.sln --no-restore --configuration Release
+
       - name: Pack BusinessRuleEngine
-        if: steps.semantic.outputs.new_release_published == 'true'
         run: |
           dotnet pack src/BusinessRuleEngine/BusinessRuleEngine.csproj \
             --no-build \
             --configuration Release \
-            -p:Version=${{ steps.semantic.outputs.new_release_version }} \
+            -p:Version=${{ needs.semantic-release.outputs.new_release_version }} \
             --output ./artifacts
 
       - name: Pack BusinessRuleEngine.Testing.NUnit
-        if: steps.semantic.outputs.new_release_published == 'true'
         run: |
           dotnet pack src/BusinessRuleEngine.Extensions/BusinessRuleEngine.Testing.NUnit.csproj \
             --no-build \
             --configuration Release \
-            -p:Version=${{ steps.semantic.outputs.new_release_version }} \
+            -p:Version=${{ needs.semantic-release.outputs.new_release_version }} \
             --output ./artifacts
 
       - name: Pack BusinessRuleEngine.Testing.XUnit
-        if: steps.semantic.outputs.new_release_published == 'true'
         run: |
           dotnet pack src/BusinessRuleEngine.Testing.XUnit/BusinessRuleEngine.Testing.XUnit.csproj \
             --no-build \
             --configuration Release \
-            -p:Version=${{ steps.semantic.outputs.new_release_version }} \
+            -p:Version=${{ needs.semantic-release.outputs.new_release_version }} \
             --output ./artifacts
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: ./artifacts/*.nupkg
+
+  publish:
+    needs: pack
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: nuget-packages
+          path: ./artifacts
+
       - name: Push to NuGet Gallery
-        if: steps.semantic.outputs.new_release_published == 'true'
         run: |
           dotnet nuget push ./artifacts/*.nupkg \
             --api-key ${{ secrets.NUGET_API_KEY }} \
