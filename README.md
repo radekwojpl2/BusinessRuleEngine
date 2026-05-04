@@ -2,6 +2,9 @@
 
 A business rule engine based on https://github.com/kgrzybek/modular-monolith-with-ddd.
 
+[![Release](https://github.com/radekwojpl2/BusinessRuleEngine/actions/workflows/release.yml/badge.svg)](https://github.com/radekwojpl2/BusinessRuleEngine/actions/workflows/release.yml)
+[![CI](https://github.com/radekwojpl2/BusinessRuleEngine/actions/workflows/ci.yml/badge.svg)](https://github.com/radekwojpl2/BusinessRuleEngine/actions/workflows/ci.yml)
+
 ## Packages
 
 | Package | Description |
