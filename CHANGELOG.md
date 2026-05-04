@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/radekwojpl2/BusinessRuleEngine/compare/v1.0.0...v1.0.1) (2026-05-04)
+
+
+### Bug Fixes
+
+* use PAT in release workflow to trigger publish pipeline ([ab97ff7](https://github.com/radekwojpl2/BusinessRuleEngine/commit/ab97ff7d7712f7cf5b4b6148154a8a03bd38a411))
+
 # 1.0.0 (2026-05-04)
 
 
