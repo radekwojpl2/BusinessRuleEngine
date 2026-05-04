@@ -1,4 +1,4 @@
-﻿namespace BuisnessRuleEngine.Tests;
+namespace BusinessRuleEngine.Tests.NUnit;
 
 class ClimbingGym
 {

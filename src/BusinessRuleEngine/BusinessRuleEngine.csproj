@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>RadekDev.BusinessRuleEngine</PackageId>
+    <Authors>Radek Bajor</Authors>
+    <Company>Radek Bajor Personal</Company>
+    <Description>A business rule engine based on https://github.com/kgrzybek/modular-monolith-with-ddd.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/radekwojpl2/BuisnessRuleEngine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/radekwojpl2/BuisnessRuleEngine</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>business-rule ddd domain-driven-design</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Exceptions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>
