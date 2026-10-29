@@ -9,8 +9,8 @@
     <Company>Radek Bajor Personal</Company>
     <Description>A business rule engine based on https://github.com/kgrzybek/modular-monolith-with-ddd.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/radekwojpl2/BuisnessRuleEngine</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/radekwojpl2/BuisnessRuleEngine</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/radekwojpl2/BusinessRuleEngine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/radekwojpl2/BusinessRuleEngine</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>business-rule ddd domain-driven-design</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>

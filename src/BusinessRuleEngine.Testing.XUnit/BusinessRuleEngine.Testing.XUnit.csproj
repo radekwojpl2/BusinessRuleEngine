@@ -9,8 +9,8 @@
     <Company>Radek Bajor Personal</Company>
     <Description>xUnit testing extensions for RadekDev.BusinessRuleEngine.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/radekwojpl2/BuisnessRuleEngine</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/radekwojpl2/BuisnessRuleEngine</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/radekwojpl2/BusinessRuleEngine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/radekwojpl2/BusinessRuleEngine</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>business-rule ddd xunit testing</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
