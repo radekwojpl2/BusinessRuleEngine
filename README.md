@@ -106,4 +106,4 @@ Commits follow [Conventional Commits](https://www.conventionalcommits.org/); rel
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE).
