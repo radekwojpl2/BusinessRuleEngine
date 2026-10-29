@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "conventional-commit": {
+      "source": "radekwojpl2/skills-with-npx",
+      "sourceType": "github",
+      "skillPath": "skills/conventional-commit/SKILL.md",
+      "computedHash": "4e23e5f77095d8972cd0823e4f5eb39814b4f7da5effac66c40883ac579cd3be"
+    },
+    "pr-description": {
+      "source": "radekwojpl2/skills-with-npx",
+      "sourceType": "github",
+      "skillPath": "skills/pr-description/SKILL.md",
+      "computedHash": "636a767f0e88fcd2f95734b6324b24f4a648fcb63db20547cfc439c5464c204f"
+    },
+    "readme-writer": {
+      "source": "radekwojpl2/skills-with-npx",
+      "sourceType": "github",
+      "skillPath": "skills/readme-writer/SKILL.md",
+      "computedHash": "b58578704532f32a64cd09b83d8eaf4ec5250c6589b3a674fdbef2a56635f187"
+    }
+  }
+}
